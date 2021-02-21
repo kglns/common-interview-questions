@@ -100,6 +100,23 @@ def permutateString(string):
     _permutate(size, stringArray)
     return final, len(final)
 
+# Recurse and swap last 2 elements
+def permutateString2(string):
+    final = set()
+    stringArray = list(string)
+    def _permutate(s1, s2):
+        size = len(s2)
+        if len(s2) == 1:
+            print(''.join(s1[:len(s1)-1] + s2 + [s1[-1]]))
+            final.add(''.join(s1[:len(s1)-1] + s2 + [s1[-1]]))
+        else:
+            for i in range(size):
+                element = s2[i]
+                newArray = s2[:i] + s2[i+1:]
+                _permutate(s1 + [element], newArray)
+    _permutate([], stringArray)
+    return final, len(final)
+
 def bfs():
     pass
 
