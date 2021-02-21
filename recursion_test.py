@@ -1,4 +1,9 @@
-from recursion import mergeSort, permutateString2
+from recursion import recursiveReverseString, mergeSort, permutateString2
+
+def testRecursiveReverseString():
+    assert(recursiveReverseString('') == '')
+    assert(recursiveReverseString('a') == 'a')
+    assert(recursiveReverseString('abcd') == 'dcba')
 
 def testMergeSort():
     assert(mergeSort([2]) == [2])
@@ -7,7 +12,7 @@ def testMergeSort():
 
 if __name__ == '__main__':
     print('----- Running Tests -----')
-    # testRecursiveReverseString()
+    testRecursiveReverseString()
     testMergeSort()
     # permutateString('abcd')
     # permutateString2('abc')

@@ -9,12 +9,7 @@ def recursiveReverseString(string):
         return string
     
     # Remove the last char and append it to the front
-    return string[size-1] + recursiveReverseStr(string[:size-1])
-
-def testRecursiveReverseString():
-    assert(recursiveReverseStr('') == '')
-    assert(recursiveReverseStr('a') == 'a')
-    assert(recursiveReverseStr('abcd') == 'dcba')
+    return string[size-1] + recursiveReverseString(string[:size-1])
 
 # Common sorting algo which employs divide and conquer
 # Time complexity - O(nlog(n))
@@ -114,11 +109,4 @@ def permutateString2(string):
 
 def bfs():
     pass
-
-if __name__ == '__main__':
-    print('----- Running Tests -----')
-    # testRecursiveReverseString()
-    # testMergeSort()
-    # permutateString('abcd')
-    permutateString2('abc')
     
