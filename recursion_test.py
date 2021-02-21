@@ -12,11 +12,11 @@ def testMergeSort():
 
 def testPermutateString():
     assert(permutateString('abc')[1] == 6)
+    assert(permutateString2('abc')[1] == 6)
 
 if __name__ == '__main__':
     print('----- Running Tests -----')
     testRecursiveReverseString()
     testMergeSort()
     testPermutateString()
-    # permutateString2('abc')
     
