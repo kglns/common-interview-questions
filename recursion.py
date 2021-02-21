@@ -101,9 +101,16 @@ def permutateString2(string):
             final.add(''.join(s1[:len(s1)-1] + s2 + [s1[-1]]))
         else:
             for i in range(size):
+                # Pull out the ith element from s2
                 element = s2[i]
+                # Recreate a new array with that element
                 newArray = s2[:i] + s2[i+1:]
+                # Append the element to s1 and also pass in the new array
                 _permutate(s1 + [element], newArray)
+    
+    # The trick is you have start with empty array and move elements to it one by one
+    # and finally swapping the last 2
+    # _permutate is called at every ith index to cover all possible combinations
     _permutate([], stringArray)
     return final, len(final)
 
