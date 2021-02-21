@@ -70,11 +70,23 @@ def testMergeSort():
     assert(mergeSort([2, 1]) == [1, 2])
     assert(mergeSort([9,8,7,6,5]) == [5,6,7,8,9])
 
+def permutateString(string):
+    primer, ending = string[0], string[1:]
+    def _permutate(string1, string2):
+        if len(string2) == 1:
+            print(string1[:-1] + string2 + string1[-1])
+        else:
+            for i in range(len(string2)):
+                return _permutate(string1 + string2[0], string2[1:])
+    _permutate(primer, ending)
+
+
 def bfs():
     pass
 
 if __name__ == '__main__':
     print('----- Running Tests -----')
-    testRecursiveReverseString()
-    testMergeSort()
+    # testRecursiveReverseString()
+    # testMergeSort()
+    permutateString('abcd')
     
