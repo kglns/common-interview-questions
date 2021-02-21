@@ -65,11 +65,6 @@ def mergeSort(unsortedArray):
     resultantArray = _combine(first, second)
     return resultantArray
 
-def testMergeSort():
-    assert(mergeSort([2]) == [2])
-    assert(mergeSort([2, 1]) == [1, 2])
-    assert(mergeSort([9,8,7,6,5]) == [5,6,7,8,9])
-
 # Heap's algorithm
 def permutateString(string):
     
@@ -125,5 +120,5 @@ if __name__ == '__main__':
     # testRecursiveReverseString()
     # testMergeSort()
     # permutateString('abcd')
-    permutate2('abc')
+    permutateString2('abc')
     
