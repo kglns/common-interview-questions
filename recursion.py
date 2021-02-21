@@ -16,6 +16,9 @@ def testRecursiveReverseString():
     assert(recursiveReverseStr('a') == 'a')
     assert(recursiveReverseStr('abcd') == 'dcba')
 
+# Common sorting algo which employs divide and conquer
+# Time complexity - O(nlog(n))
+# Space complexity - O(n)
 def mergeSort(unsortedArray):
     
     # Helper inner function for combining base cases
