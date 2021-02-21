@@ -70,16 +70,35 @@ def testMergeSort():
     assert(mergeSort([2, 1]) == [1, 2])
     assert(mergeSort([9,8,7,6,5]) == [5,6,7,8,9])
 
+# Heap's algorithm
 def permutateString(string):
-    primer, ending = string[0], string[1:]
-    def _permutate(string1, string2):
-        if len(string2) == 1:
-            print(string1[:-1] + string2 + string1[-1])
-        else:
-            for i in range(len(string2)):
-                return _permutate(string1 + string2[0], string2[1:])
-    _permutate(primer, ending)
+    
+    # Take care of string to array conversion and iteration
+    size = len(string)
+    stringArray = list(string)
+    final = []
 
+    # Inner function to do the work
+    def _permutate(k, stringArray):
+        # Base case where k = 1
+        if k == 1:
+            print(''.join(stringArray))
+            final.append(''.join(stringArray))
+        else:
+            # Main loop to decrease and conquer
+            for i in range(k):
+                # Decrease k by 1 first
+                _permutate(k-1, stringArray)
+
+                # If k is even swap first element and k-1 element
+                # else swap ith element with k-1 element
+                if k%2 == 0:
+                    stringArray[0], stringArray[k-1] = stringArray[k-1], stringArray[0]
+                else:
+                    stringArray[i], stringArray[k-1] = stringArray[k-1], stringArray[i]
+    # Do the actual work here
+    _permutate(size, stringArray)
+    return final, len(final)
 
 def bfs():
     pass
@@ -88,5 +107,6 @@ if __name__ == '__main__':
     print('----- Running Tests -----')
     # testRecursiveReverseString()
     # testMergeSort()
-    permutateString('abcd')
+    # permutateString('abcd')
+    permutate2('abc')
     
