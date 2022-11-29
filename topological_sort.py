@@ -51,6 +51,10 @@ class Test(unittest.TestCase):
         self.tps.DFS("B")
         self.assertEqual(self.tps.topOrder, ["B", "E", "F", "D"])
 
+    def test_hasNeighbors(self):
+        self.assertTrue(self.tps.hasNeighbors("A"))
+        self.assertFalse(self.tps.hasNeighbors("C"))
+
 if __name__ == '__main__':
     unittest.main()
         
