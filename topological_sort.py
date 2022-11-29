@@ -20,7 +20,12 @@ class TopologicalSort:
         return True if self.graph.get(node) else False
 
     def apply(self):
-        pass
+        for node in self.nodes:
+            if node in self.visited:
+                continue
+            else:
+                self.DFS(node)
+        return self.topOrder
 
     def DFS(self, node):
         neighbors = self.graph.get(node) or []
@@ -55,6 +60,10 @@ class Test(unittest.TestCase):
         self.assertTrue(self.tps.hasNeighbors("A"))
         self.assertFalse(self.tps.hasNeighbors("C"))
 
+    def test_apply(self):
+        self.tps.topOrder = [] # reset the result from test_DFS func
+        result = self.tps.apply()
+        self.assertEqual(result, ['A', 'C', 'B', 'E', 'F', 'D'])
 if __name__ == '__main__':
     unittest.main()
         
