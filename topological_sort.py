@@ -19,6 +19,12 @@ class TopologicalSort:
     def hasNeighbors(self, node):
         return True if self.graph.get(node) else False
 
+    '''
+    Wrapper function on DFS
+    Visit each node
+    Skip if the node has been visited
+    Apply DFS to return topological order
+    '''
     def apply(self):
         for node in self.nodes:
             if node in self.visited:
@@ -27,14 +33,20 @@ class TopologicalSort:
                 self.DFS(node)
         return self.topOrder
 
+    # Main func that does the work
     def DFS(self, node):
         neighbors = self.graph.get(node) or []
+
+        # Dive down to each child (neighbor) node
         for n in neighbors:
             if self.hasNeighbors(n):
                 self.DFS(n)
             else:
+                # No neighbors, then mark visted and left append in topological order
                 self.visited.add(n)
                 self.topOrder = [n] + self.topOrder
+        
+        # Backtrack the parent node
         self.visited.add(node)
         self.topOrder = [node] + self.topOrder
 
@@ -64,6 +76,7 @@ class Test(unittest.TestCase):
         self.tps.topOrder = [] # reset the result from test_DFS func
         result = self.tps.apply()
         self.assertEqual(result, ['A', 'C', 'B', 'E', 'F', 'D'])
+
 if __name__ == '__main__':
     unittest.main()
         
